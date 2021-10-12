@@ -663,7 +663,6 @@ github.com/litmuschaos/chaos-operator v0.0.0-20210610071657-a58dbd939e73/go.mod 
 github.com/litmuschaos/chaos-operator v0.0.0-20210906063757-231a74b4452d h1:xeMqIiXygooPtLmx2CHcaAL+ltjLsI4ur6gHN72KVRA=
 github.com/litmuschaos/chaos-operator v0.0.0-20210906063757-231a74b4452d/go.mod h1:xC3SRAipOz7NxXsmCtDmbto5xNb//ewmZSXydwUt30s=
 github.com/litmuschaos/elves v0.0.0-20201107015738-552d74669e3c/go.mod h1:DsbHGNUq/78NZozWVVI9Q6eBei4I+JjlkkD5aibJ3MQ=
-github.com/litmuschaos/litmus-go v0.0.0-20210705063441-babf0c4aa57d h1:QCIy9qxYtAQ6XoI5o935yKbulaVswl6X5lGQire2bwQ=
 github.com/litmuschaos/litmus-go v0.0.0-20210705063441-babf0c4aa57d/go.mod h1:MNO+1u4jBPjLtFO56bckIv87EhwTkppJxDf8+6PbLRY=
 github.com/logrusorgru/aurora v0.0.0-20181002194514-a7b3b318ed4e/go.mod h1:7rIyQOR62GCctdiQpZ/zOJlFyk6y+94wXzv6RNZgaR4=
 github.com/lpabon/godbc v0.1.1/go.mod h1:Jo9QV0cf3U6jZABgiJ2skINAXb9j8m51r07g4KI92ZA=

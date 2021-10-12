@@ -145,9 +145,9 @@ func injectChaosInParallelMode(experimentsDetails *experimentTypes.ExperimentDet
 					return errors.Errorf("%v", err)
 				}
 				runCommand.GetRunCommandResult(&result)
-				// if err = azure.CheckRunCommandResultError(&result); err != nil {
-				// 	return err
-				// }
+				if err = azure.CheckRunCommandResultError(&result); err != nil {
+					return err
+				}
 			}
 
 			// Stopping toxiproxy server and clearing toxics on VM
@@ -157,14 +157,14 @@ func injectChaosInParallelMode(experimentsDetails *experimentTypes.ExperimentDet
 				if err := runCommand.PerformRunCommand(&runCommandFuture, abortRunCommandInput, experimentsDetails.SubscriptionID, experimentsDetails.ResourceGroup, vmName, experimentsDetails.ScaleSet); err != nil {
 					return errors.Errorf("unable to run script on azure instance, err: %v", err)
 				}
-				_, err = runCommand.WaitForRunCommandCompletion(&runCommandFuture, experimentsDetails.SubscriptionID, experimentsDetails.ScaleSet)
+				result, err := runCommand.WaitForRunCommandCompletion(&runCommandFuture, experimentsDetails.SubscriptionID, experimentsDetails.ScaleSet)
 				if err != nil {
 					return errors.Errorf("%v", err)
 				}
-				// runCommand.GetRunCommandResult(&result)
-				// if err = azure.CheckRunCommandResultError(&result); err != nil {
-				// 	return err
-				// }
+				runCommand.GetRunCommandResult(&result)
+				if err = azure.CheckRunCommandResultError(&result); err != nil {
+					return err
+				}
 			}
 
 			duration = int(time.Since(ChaosStartTimeStamp).Seconds())
@@ -233,10 +233,10 @@ func injectChaosInSerialMode(experimentsDetails *experimentTypes.ExperimentDetai
 				if err != nil {
 					return errors.Errorf("%v", err)
 				}
-				// runCommand.GetRunCommandResult(&result)
-				// if err = azure.CheckRunCommandResultError(&result); err != nil {
-				// 	return err
-				// }
+				runCommand.GetRunCommandResult(&result)
+				if err = azure.CheckRunCommandResultError(&result); err != nil {
+					return err
+				}
 			}
 			duration = int(time.Since(ChaosStartTimeStamp).Seconds())
 		}

@@ -1,7 +1,6 @@
 package azure
 
 import (
-	"regexp"
 	"strconv"
 	"strings"
 
@@ -132,20 +131,9 @@ func CheckRunCommandResultError(result *compute.RunCommandResult) error {
 
 	for ; i < len(message) && message[i] != "[stderr]"; i++ {
 	}
-	// errorCodes := make([][]int)
-	var errorCode []int
-	errorCode = nil
 
-	if message[i+1] != "" {
-		exitCodeRegex := regexp.MustCompile("error:")
-		for ; i < len(message); i++ {
-			// errorCodes = append(errorCodes, exitCodeRegex.FindStringIndex())
-			errorCode = exitCodeRegex.FindStringIndex(message[i])
-			break
-		}
-	}
-	if errorCode != nil {
-		return errors.Errorf("Script failed due to %v", message[errorCode[0]:])
+	if i < len(message)-1 && message[i+1] != "" {
+		return errors.Errorf("Script failed due to %v. Check logs!", message[i+1])
 	}
 	return nil
 }

@@ -27,5 +27,5 @@ toxiproxy-cli create ${ToxicName} --listen localhost:${ListenPort} --${StreamTyp
 
 for i in "${!toxics[@]}"; do
     toxiproxy-cli toxic add ${ToxicName} --type ${toxics[i]} --attribute ${toxics[i]}=${values[i]}
-    printf "%s is in %s\n" "${toxics[i]}" "${values[i]}"
 done
+echo "Process completed"
