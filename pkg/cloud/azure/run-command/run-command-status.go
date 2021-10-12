@@ -16,7 +16,6 @@ func GetRunCommandResult(result *compute.RunCommandResult) {
 	}
 
 	if i < len(message)-1 && message[i+1] != "" {
-		log.Info("[Info]: Script Output on VM: \n")
 		i++
 		for ; i < len(message) && message[i] != "[stderr]"; i++ {
 			if message[i] != "" {
@@ -26,7 +25,6 @@ func GetRunCommandResult(result *compute.RunCommandResult) {
 	}
 
 	if i < len(message)-1 && message[i+1] != "" {
-		log.Info("[Info]: Script Errors on VM: \n")
 		i++
 		for ; i < len(message) && message[i] != ""; i++ {
 			log.Errorf("[stderr]: %v\n", message[i])

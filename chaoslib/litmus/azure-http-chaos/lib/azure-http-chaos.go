@@ -109,7 +109,7 @@ func injectChaosInParallelMode(experimentsDetails *experimentTypes.ExperimentDet
 
 			runCommandFutures := []commonExperimentTypes.RunCommandFuture{}
 
-			log.Infof("[Info]: Target instanceName list, %v", instanceNameList)
+			log.Infof("[Info]: Target instances name list %v", instanceNameList)
 
 			if experimentsDetails.EngineName != "" {
 				msg := "Injecting " + experimentsDetails.ExperimentName + " chaos on Azure instance"
@@ -144,6 +144,7 @@ func injectChaosInParallelMode(experimentsDetails *experimentTypes.ExperimentDet
 				if err != nil {
 					return errors.Errorf("%v", err)
 				}
+				log.Infof("[Info]: Run Script Output on VM: %v", vmName)
 				runCommand.GetRunCommandResult(&result)
 				if err = azure.CheckRunCommandResultError(&result); err != nil {
 					return err
@@ -161,6 +162,7 @@ func injectChaosInParallelMode(experimentsDetails *experimentTypes.ExperimentDet
 				if err != nil {
 					return errors.Errorf("%v", err)
 				}
+				log.Infof("[Info]: Stop Script Output on VM: %v", vmName)
 				runCommand.GetRunCommandResult(&result)
 				if err = azure.CheckRunCommandResultError(&result); err != nil {
 					return err
@@ -185,7 +187,7 @@ func injectChaosInSerialMode(experimentsDetails *experimentTypes.ExperimentDetai
 
 		for duration < experimentsDetails.ChaosDuration {
 
-			log.Infof("[Info]: Target instanceName list, %v", instanceNameList)
+			log.Infof("[Info]: Target instances name list, %v", instanceNameList)
 
 			if experimentsDetails.EngineName != "" {
 				msg := "Injecting " + experimentsDetails.ExperimentName + " chaos on Azure instance"
@@ -218,6 +220,7 @@ func injectChaosInSerialMode(experimentsDetails *experimentTypes.ExperimentDetai
 				if err != nil {
 					return errors.Errorf("%v", err)
 				}
+				log.Infof("[Info]: Run Script Output on VM: %v", vmName)
 				runCommand.GetRunCommandResult(&result)
 				if err = azure.CheckRunCommandResultError(&result); err != nil {
 					return err
@@ -233,6 +236,7 @@ func injectChaosInSerialMode(experimentsDetails *experimentTypes.ExperimentDetai
 				if err != nil {
 					return errors.Errorf("%v", err)
 				}
+				log.Infof("[Info]: Stop Script Output on VM: %v", vmName)
 				runCommand.GetRunCommandResult(&result)
 				if err = azure.CheckRunCommandResultError(&result); err != nil {
 					return err
@@ -265,6 +269,7 @@ func abortWatcher(experimentsDetails *experimentTypes.ExperimentDetails, instanc
 		if err != nil {
 			log.Errorf("%v", err)
 		}
+		log.Infof("[Info]: Abort Script Output on VM: %v", vmName)
 		runCommand.GetRunCommandResult(&result)
 		if err = azure.CheckRunCommandResultError(&result); err != nil {
 			log.Errorf("failed to abort script due to %v", err)
