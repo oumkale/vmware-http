@@ -6,8 +6,8 @@ import (
 	clientTypes "k8s.io/apimachinery/pkg/types"
 
 	experimentTypes "github.com/chaosnative/litmus-go/pkg/azure/http-chaos/types"
-	"github.com/chaosnative/litmus-go/pkg/types"
-	"github.com/chaosnative/litmus-go/pkg/utils/common"
+	"github.com/litmuschaos/litmus-go/pkg/types"
+	"github.com/litmuschaos/litmus-go/pkg/utils/common"
 )
 
 // STEPS TO GETENV OF YOUR CHOICE HERE
@@ -29,22 +29,22 @@ func GetENV(experimentDetails *experimentTypes.ExperimentDetails) {
 	experimentDetails.InstanceID = common.Getenv("INSTANCE_ID", "")
 	experimentDetails.Delay, _ = strconv.Atoi(common.Getenv("STATUS_CHECK_DELAY", "2"))
 	experimentDetails.Timeout, _ = strconv.Atoi(common.Getenv("STATUS_CHECK_TIMEOUT", "15"))
-	experimentDetails.AzureInstanceNames = common.Getenv("AZURE_INSTANCE_NAMES", "")
-	experimentDetails.ResourceGroup = common.Getenv("RESOURCE_GROUP", "")
+	experimentDetails.AzureInstanceNames = common.Getenv("AZURE_INSTANCE_NAMES", "akash-run-command,akash-chaos-test")
+	experimentDetails.ResourceGroup = common.Getenv("RESOURCE_GROUP", "akash-litmus-test")
 	experimentDetails.ScaleSet = common.Getenv("SCALE_SET", "disable")
-	experimentDetails.Sequence = common.Getenv("SEQUENCE", "parallel")
-	experimentDetails.StreamPort = common.Getenv("STREAM_PORT", "")
+	experimentDetails.Sequence = common.Getenv("SEQUENCE", "serial")
+	experimentDetails.StreamPort = common.Getenv("STREAM_PORT", "6379")
 	experimentDetails.StreamType = common.Getenv("STREAM_TYPE", "upstream")
 	experimentDetails.ListenPort = common.Getenv("LISTEN_PORT", "20000")
 	experimentDetails.HttpChaosType = common.Getenv("HTTP_CHAOS_TYPE", "latency")
-	experimentDetails.InstallDependency = common.Getenv("INSTALL_DEPENDENCY", "False")
+	experimentDetails.InstallDependency = common.Getenv("INSTALL_DEPENDENCY", "True")
 	experimentDetails.OperatingSystem = common.Getenv("OPERATING_SYSTEM", "linux")
 	experimentDetails.Latency, _ = strconv.Atoi(common.Getenv("LATENCY", "2000"))
 	experimentDetails.RateLimit, _ = strconv.Atoi(common.Getenv("RATE_LIMIT", "100"))
 	experimentDetails.DataLimit, _ = strconv.Atoi(common.Getenv("DATA_LIMIT", "10000"))
 	experimentDetails.RequestTimeout, _ = strconv.Atoi(common.Getenv("REQUEST_TIMEOUT", "1000"))
 	experimentDetails.ScriptPath = common.Getenv("SCRIPT_PATH", "pkg/azure/http-chaos/scripts/run-script.sh")
-	experimentDetails.AbortScriptPath = common.Getenv("ABORT_SCRIPT_PATH", "pkg/azure/http-chaos/scripts/abort-script.sh")
+	experimentDetails.AbortScriptPath = common.Getenv("ABORT_SCRIPT_PATH", "pkg/azure/http-chaos/scripts/stop-script.sh")
 }
 
 //InitialiseChaosVariables initialise all the global variables

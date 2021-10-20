@@ -6,8 +6,8 @@ import (
 	clientTypes "k8s.io/apimachinery/pkg/types"
 
 	experimentTypes "github.com/chaosnative/litmus-go/pkg/azure/stress-chaos/types"
-	"github.com/chaosnative/litmus-go/pkg/types"
-	"github.com/chaosnative/litmus-go/pkg/utils/common"
+	"github.com/litmuschaos/litmus-go/pkg/types"
+	"github.com/litmuschaos/litmus-go/pkg/utils/common"
 )
 
 // STEPS TO GETENV OF YOUR CHOICE HERE
@@ -31,8 +31,8 @@ func GetENV(experimentDetails *experimentTypes.ExperimentDetails) {
 	experimentDetails.ChaosPodName = common.Getenv("POD_NAME", "")
 	experimentDetails.Delay, _ = strconv.Atoi(common.Getenv("STATUS_CHECK_DELAY", "2"))
 	experimentDetails.Timeout, _ = strconv.Atoi(common.Getenv("STATUS_CHECK_TIMEOUT", "180"))
-	experimentDetails.AzureInstanceNames = common.Getenv("AZURE_INSTANCE_NAMES", "")
-	experimentDetails.ResourceGroup = common.Getenv("RESOURCE_GROUP", "")
+	experimentDetails.AzureInstanceNames = common.Getenv("AZURE_INSTANCE_NAMES", "akash-chaos-test")
+	experimentDetails.ResourceGroup = common.Getenv("RESOURCE_GROUP", "akash-litmus-test")
 	experimentDetails.ScaleSet = common.Getenv("SCALE_SET", "disable")
 	experimentDetails.Sequence = common.Getenv("SEQUENCE", "parallel")
 	experimentDetails.StressChaosType = common.Getenv("STRESS_CHAOS_TYPE", "cpu-hog")
@@ -45,7 +45,7 @@ func GetENV(experimentDetails *experimentTypes.ExperimentDetails) {
 	experimentDetails.FilesystemUtilizationPercentage, _ = strconv.Atoi(common.Getenv("FILESYSTEM_UTILIZATION_PERCENTAGE", "10"))
 	experimentDetails.VolumeMountPath = common.Getenv("VOLUME_MOUNT_PATH", "")
 	experimentDetails.ScriptPath = common.Getenv("SCRIPT_PATH", "pkg/azure/stress-chaos/scripts/run-script.sh")
-	experimentDetails.AbortScriptPath = common.Getenv("ABORT_SCRIPT_PATH", "pkg/azure/stress-chaos/scripts/abort-script.sh")
+	experimentDetails.AbortScriptPath = common.Getenv("ABORT_SCRIPT_PATH", "pkg/azure/stress-chaos/scripts/stop-script.sh")
 
 }
 

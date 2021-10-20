@@ -7,7 +7,7 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/profiles/latest/compute/mgmt/compute"
 	experimentTypes "github.com/chaosnative/litmus-go/pkg/azure/stress-chaos/types"
-	"github.com/chaosnative/litmus-go/pkg/log"
+	"github.com/litmuschaos/litmus-go/pkg/log"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

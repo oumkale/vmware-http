@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/profiles/latest/compute/mgmt/compute"
-	"github.com/chaosnative/litmus-go/pkg/log"
+	"github.com/litmuschaos/litmus-go/pkg/log"
 )
 
 func GetRunCommandResult(result *compute.RunCommandResult) {

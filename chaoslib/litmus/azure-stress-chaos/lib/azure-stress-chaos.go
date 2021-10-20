@@ -9,14 +9,14 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/profiles/latest/compute/mgmt/compute"
 	experimentTypes "github.com/chaosnative/litmus-go/pkg/azure/stress-chaos/types"
-	clients "github.com/chaosnative/litmus-go/pkg/clients"
 	runCommand "github.com/chaosnative/litmus-go/pkg/cloud/azure/run-command"
 	azure "github.com/chaosnative/litmus-go/pkg/cloud/azure/stress"
-	"github.com/chaosnative/litmus-go/pkg/events"
-	"github.com/chaosnative/litmus-go/pkg/log"
-	"github.com/chaosnative/litmus-go/pkg/probe"
-	"github.com/chaosnative/litmus-go/pkg/types"
-	"github.com/chaosnative/litmus-go/pkg/utils/common"
+	clients "github.com/litmuschaos/litmus-go/pkg/clients"
+	"github.com/litmuschaos/litmus-go/pkg/events"
+	"github.com/litmuschaos/litmus-go/pkg/log"
+	"github.com/litmuschaos/litmus-go/pkg/probe"
+	"github.com/litmuschaos/litmus-go/pkg/types"
+	"github.com/litmuschaos/litmus-go/pkg/utils/common"
 	"github.com/pkg/errors"
 )
 

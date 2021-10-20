@@ -1,6 +1,7 @@
 #!/bin/bash
 if  [[ "${InstallDependency}" == True ]] ; then
-    if [[ "$( which toxiproxy-server 2>/dev/null )" ]] ; then echo Dependency is already installed. 
+    if [[ "$( which toxiproxy-server 2>/dev/null )" ]] ; then 
+        echo Dependency is already installed. 
     else 
         echo "Installing required dependencies" 
         if cat /etc/issue | grep -i Ubuntu ; then

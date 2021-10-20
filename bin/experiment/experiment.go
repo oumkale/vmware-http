@@ -14,8 +14,8 @@ import (
 	azureHttpChaos "github.com/chaosnative/litmus-go/experiments/azure/azure-http-chaos/experiment"
 	azureStressChaos "github.com/chaosnative/litmus-go/experiments/azure/azure-stress-chaos/experiment"
 
-	"github.com/chaosnative/litmus-go/pkg/clients"
-	"github.com/chaosnative/litmus-go/pkg/log"
+	"github.com/litmuschaos/litmus-go/pkg/clients"
+	"github.com/litmuschaos/litmus-go/pkg/log"
 	"github.com/sirupsen/logrus"
 )
 

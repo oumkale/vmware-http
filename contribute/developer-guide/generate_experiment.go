@@ -11,7 +11,7 @@ import (
 	"text/template"
 
 	"github.com/chaosnative/litmus-go/contribute/developer-guide/types"
-	"github.com/chaosnative/litmus-go/pkg/log"
+	"github.com/litmuschaos/litmus-go/pkg/log"
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
 )

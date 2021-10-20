@@ -33,14 +33,11 @@ require (
 	github.com/Azure/azure-sdk-for-go v57.2.0+incompatible
 	github.com/Azure/go-autorest/autorest v0.11.20
 	github.com/Azure/go-autorest/autorest/azure/auth v0.5.8
-	github.com/kyokomi/emoji v2.2.4+incompatible
-	github.com/litmuschaos/chaos-operator v0.0.0-20210906063757-231a74b4452d
-	github.com/openebs/maya v1.12.1
+	github.com/litmuschaos/chaos-operator v0.0.0-20210906063757-231a74b4452d // indirect
+	github.com/litmuschaos/litmus-go v0.0.0-20210705063441-babf0c4aa57d
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.2.1
 	gopkg.in/yaml.v2 v2.4.0
-	k8s.io/api v0.17.3
 	k8s.io/apimachinery v0.17.3
-	k8s.io/client-go v12.0.0+incompatible
 )
