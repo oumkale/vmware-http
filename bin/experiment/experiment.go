@@ -10,9 +10,7 @@ import (
 	// _ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
 	// _ "k8s.io/client-go/plugin/pkg/client/auth/oidc"
 	// _ "k8s.io/client-go/plugin/pkg/client/auth/openstack"
-
-	azureHttpChaos "github.com/chaosnative/litmus-go/experiments/azure/azure-http-chaos/experiment"
-	azureStressChaos "github.com/chaosnative/litmus-go/experiments/azure/azure-stress-chaos/experiment"
+	vmwareHttpChaos "github.com/chaosnative/litmus-go/experiments/vmware/vmware-http-chaos/experiment"
 
 	"github.com/litmuschaos/litmus-go/pkg/clients"
 	"github.com/litmuschaos/litmus-go/pkg/log"
@@ -49,6 +47,8 @@ func main() {
 		azureStressChaos.AzureStressChaosExperiment(clients)
 	case "azure-http-chaos":
 		azureHttpChaos.AzureHttpChaosExperiment(clients)
+	case "vmware-http-chaos":
+		vmwareHttpChaos.VMWareHttpChaosExperiment(clients)
 	default:
 		log.Errorf("Unsupported -name %v, please provide the correct value of -name args", *experimentName)
 		return

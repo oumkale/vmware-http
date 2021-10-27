@@ -2,6 +2,16 @@ module github.com/chaosnative/litmus-go
 
 go 1.16
 
+require (
+	github.com/Azure/azure-sdk-for-go v56.1.0+incompatible
+	github.com/litmuschaos/chaos-operator v0.0.0-20210906054553-064706497fb6
+	github.com/litmuschaos/litmus-go v0.0.0-20211001050128-f598a43c6654
+	github.com/pkg/errors v0.9.1
+	github.com/sirupsen/logrus v1.7.0
+	github.com/vmware/govmomi v0.20.3
+	k8s.io/apimachinery v0.17.3
+)
+
 // Pinned to kubernetes-1.16.2
 replace (
 	k8s.io/api => k8s.io/api v0.0.0-20191016110408-35e52d86657a
@@ -28,16 +38,3 @@ replace (
 )
 
 replace github.com/docker/docker => github.com/moby/moby v0.7.3-0.20190826074503-38ab9da00309 // Required by Helm
-
-require (
-	github.com/Azure/azure-sdk-for-go v57.2.0+incompatible
-	github.com/Azure/go-autorest/autorest v0.11.20
-	github.com/Azure/go-autorest/autorest/azure/auth v0.5.8
-	github.com/litmuschaos/chaos-operator v0.0.0-20210906063757-231a74b4452d // indirect
-	github.com/litmuschaos/litmus-go v0.0.0-20210705063441-babf0c4aa57d
-	github.com/pkg/errors v0.9.1
-	github.com/sirupsen/logrus v1.8.1
-	github.com/spf13/cobra v1.2.1
-	gopkg.in/yaml.v2 v2.4.0
-	k8s.io/apimachinery v0.17.3
-)
